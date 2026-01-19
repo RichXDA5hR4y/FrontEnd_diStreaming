@@ -1,38 +1,430 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* =========================================
+   1. GLOBAL RESET & DARK THEME (Wajib!)
+   ========================================= */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  body {
+    background-color: #141414; /* Hitam Netflix */
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  to {
-    transform: rotate(360deg);
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* =========================================
+     2. HEADER / NAVBAR
+     ========================================= */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  }
+  
+  .header h1 a {
+    color: #e50914; /* Merah Brand */
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .header nav li {
+    color: #e5e5e5;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .header nav li:hover {
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .header nav li a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* =========================================
+     3. MAIN CONTENT & GRID SYSTEM
+     ========================================= */
+  .main-content {
+    padding: 40px;
+    min-height: 85vh; /* Biar footer gak naik ke tengah */
+  }
+  
+  .section-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    border-left: 5px solid #e50914;
+    padding-left: 15px;
+  }
+  
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+  }
+  
+  /* =========================================
+     4. MOVIE CARD (Kotak Film)
+     ========================================= */
+  .movie-card-link {
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .movie-card {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  /* Efek Hover Keren */
+  .movie-card-link:hover {
+    transform: scale(1.05);
+    z-index: 10;
+  }
+  
+  .movie-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+  }
+  
+  .movie-poster {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2/3; /* Rasio poster standar */
+    overflow: hidden;
+  }
+  
+  .movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Overlay Hitam saat Hover */
+  .movie-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .movie-card-link:hover .movie-overlay {
+    opacity: 1;
+  }
+  
+  .play-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .movie-info {
+    padding: 15px;
+  }
+  
+  .movie-info h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+  }
+  
+  .movie-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  .rating {
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .rating.green { background-color: #46d369; }
+  .rating.orange { background-color: #ffa500; }
+  .rating.red { background-color: #f44336; }
+  
+  /* =========================================
+     5. PAGINATION (Tombol Halaman)
+     ========================================= */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 10px;
+  }
+  
+  .pagination button {
+    padding: 10px 18px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+  
+  .pagination button:hover {
+    background: #555;
+  }
+  
+  .pagination button.active {
+    background: #e50914; /* Merah Aktif */
+    font-weight: bold;
+    transform: scale(1.1);
+  }
+  
+  /* =========================================
+     6. LOGIN & REGISTER FORM (Biar gak kayak HTML biasa)
+     ========================================= */
+  .auth-container {
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 60px 40px;
+    background: rgba(0, 0, 0, 0.75); /* Hitam Transparan */
+    border-radius: 8px;
+    text-align: left;
+    border: 1px solid #333;
+  }
+  
+  .auth-container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 28px;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .auth-form input {
+    padding: 16px;
+    border-radius: 4px;
+    border: none;
+    background: #333;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .auth-form input:focus {
+    background: #444;
+    outline: none;
+    border-bottom: 2px solid #e50914;
+  }
+  
+  .auth-form button {
+    padding: 16px;
+    background: #e50914;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+  
+  .auth-form button:hover {
+    background: #f40612;
+  }
+  
+  .auth-container p {
+    margin-top: 20px;
+    color: #737373;
+    font-size: 14px;
+  }
+  
+  .auth-container a {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* =========================================
+     7. MOVIE DETAIL PAGE
+     ========================================= */
+  .movie-detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 20px;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .detail-poster {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+  }
+  
+  .detail-poster img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  }
+  
+  .detail-info {
+    flex: 2;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .detail-info h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  .rating-badge {
+    display: inline-block;
+    background: #46d369;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    width: fit-content;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+  
+  .back-btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 12px 24px;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .back-btn:hover {
+    background-color: #e5e5e5;
+    color: black;
+  }
+  
+  /* =========================================
+     8. FOOTER
+     ========================================= */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #000;
+    color: #757575;
+    font-size: 14px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+  }
+  
+  /* Animasi Fade In */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* =========================================
+   9. RESPONSIVE MOBILE 
+   ========================================= */
+@media (max-width: 768px) {
+  /* 1. Header jadi tumpuk atas-bawah biar gak sempit */
+  .header {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .header nav ul {
+    gap: 15px;
+    font-size: 14px;
+  }
+
+  /* 2. Margin konten dikurangi biar lega */
+  .main-content {
+    padding: 20px 15px; /* Atas-Bawah 20, Kiri-Kanan 15 */
+  }
+
+  /* 3. Kartu film dikecilin dikit biar muat 2 kolom di HP */
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+  }
+
+  .movie-card-link:hover {
+    transform: none; /* Matikan efek zoom di HP biar gak aneh pas discroll */
+  }
+
+  /* 4. Halaman Detail Film */
+  .movie-detail-container {
+    padding: 0;
+    gap: 20px;
+  }
+  
+  .detail-poster {
+    max-width: 100%; /* Poster full lebar layar */
+  }
+
+  .detail-info h1 {
+    font-size: 2rem; /* Judul jangan gede-gede amat */
+    margin-top: 10px;
+  }
+
+  /* 5. Halaman Login/Register */
+  .auth-container {
+    margin: 40px 10px; /* Margin kiri kanan tipis aja */
+    padding: 30px 20px;
+    width: auto;
   }
 }
