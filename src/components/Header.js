@@ -1,30 +1,42 @@
 // src/components/Header.js
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
-  // Cek status login
-  const isAuth = localStorage.getItem('isAuth');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Cek auth saat komponen mount
+  useEffect(() => {
+    const authStatus = localStorage.getItem('isAuth');
+    setIsAuthenticated(!!authStatus); // true jika ada nilainya
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('isAuth');
+    setIsAuthenticated(false);
     navigate('/login');
   };
 
   return (
     <header className="header">
-      {/* Logo diStreaming klik balik ke Home */}
-      <h1><Link to="/" style={{textDecoration:'none', color:'#e50914'}}>diStreaming</Link></h1>
+      <h1>
+        <Link to="/" style={{ textDecoration: 'none', color: '#e50914' }}>
+          diStreaming
+        </Link>
+      </h1>
       
       <nav>
         <ul>
-          {isAuth ? (
+          {isAuthenticated ? (
             <>
               <li><Link to="/">Home</Link></li>
               <li>Movies</li> 
-              <li onClick={handleLogout} style={{cursor: 'pointer', color: 'red', fontWeight: 'bold'}}>
+              <li 
+                onClick={handleLogout} 
+                style={{ cursor: 'pointer', color: 'red', fontWeight: 'bold' }}
+              >
                 Logout
               </li>
             </>
