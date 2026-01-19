@@ -14,7 +14,7 @@ const Register = () => {
     setError('');
 
     try {
-      const res = await fetch('http://203.194.115.210:8007/api/register', {
+      const res = await fetch('/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

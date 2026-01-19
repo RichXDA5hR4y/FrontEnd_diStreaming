@@ -12,7 +12,7 @@ const Login = () => {
     setError('');
 
     try {
-      const res = await fetch('http://203.194.115.210:8007/api/login', {
+      const res = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
         'Accept': 'application/json',

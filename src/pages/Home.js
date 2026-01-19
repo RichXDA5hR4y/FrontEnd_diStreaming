@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await fetch('http://203.194.115.210:8007/api/movies');
+        const response = await fetch('/api/movies');
         if (!response.ok) throw new Error('Gagal mengambil data film');
         const result = await response.json();
 

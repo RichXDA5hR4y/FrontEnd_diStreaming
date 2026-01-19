@@ -11,7 +11,7 @@ const MovieDetail = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const response = await fetch(`http://203.194.115.210:8007/api/movies/${id}`);
+        const response = await fetch(`/api/movies/${id}`);
         if (!response.ok) throw new Error('Film tidak ditemukan');
         const result = await response.json();
         setMovie(result.data); // Sesuaikan dengan struktur respons API
