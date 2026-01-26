@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# 🎬 FrontEnd - diStreaming
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**diStreaming** adalah antarmuka frontend untuk platform layanan streaming film fiktif. Proyek ini dibangun untuk mendemonstrasikan kemampuan pengembangan web modern, mulai dari tampilan antarmuka yang responsif hingga interaksi data yang dinamis.
 
-## Available Scripts
+![Project Status](https://img.shields.io/badge/status-active-success.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-In the project directory, you can run:
+## 📖 Deskripsi
 
-### `npm start`
+Aplikasi ini dirancang untuk memberikan pengalaman pengguna yang mulus dalam menjelajahi katalog film. Pengguna dapat mendaftar, masuk, dan melihat detail film dengan sistem navigasi yang intuitif. Proyek ini merupakan bagian dari portofolio pengembangan Full Stack Web.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Fitur Utama
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **Autentikasi Pengguna:** Halaman Login dan Register (Sign Up) yang fungsional.
+* **Protected Routes:** Pembatasan akses ke halaman tertentu (hanya untuk pengguna yang sudah login).
+* **Katalog Film:** Menampilkan daftar film dengan *pagination* untuk navigasi data yang efisien.
+* **Detail Film:** Halaman khusus yang menampilkan informasi lengkap dari setiap film.
+* **Desain Responsif:** Tampilan yang menyesuaikan dengan berbagai ukuran layar (Desktop & Mobile).
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Teknologi yang digunakan dalam pembangunan proyek ini:
 
-### `npm run build`
+* **Library/Framework:** React.js
+* **Routing:** React Router DOM
+* **HTTP Client:** Axios (untuk konsumsi API)
+* **Styling:** CSS / Tailwind CSS / Bootstrap *(Sesuaikan dengan yang digunakan)*
+* **Version Control:** Git & GitHub
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📂 Struktur Folder
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+FrontEnd_diStreaming/
+├── public/
+├── src/
+│   ├── assets/         # Gambar, font, dan file statis
+│   ├── components/     # Komponen UI yang dapat digunakan kembali
+│   ├── pages/          # Halaman utama (Home, Login, MovieDetail, dll)
+│   ├── services/       # Konfigurasi API dan Axios
+│   ├── App.js          # Main entry point
+│   └── index.js
+├── package.json
+└── README.md
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🚀 Cara Menjalankan (Installation)
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di mesin lokal Anda:
 
-### `npm run eject`
+1.) Clone repositori ini:
+git clone [https://github.com/RichXDA5hR4y/FrontEnd_diStreaming.git](https://github.com/RichXDA5hR4y/FrontEnd_diStreaming.git)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2.) Masuk ke direktori proyek:
+cd FrontEnd_diStreaming
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3.) Install dependencies:
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4.) Jalankan aplikasi :
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+👤 Author
+Rayneldis Richard Tandirerung, S.Inf.
+* Role: Full Stack Web Developer 
+* GitHub: RichXDA5hR4y 
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Dibuat untuk tujuan edukasi dan portofolio pengembangan web.
