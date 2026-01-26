@@ -57,10 +57,11 @@ npm install
 4.) Jalankan aplikasi :
 npm start
 
-👤 Author
-Rayneldis Richard Tandirerung, S.Inf.
-* Role: Full Stack Web Developer 
-* GitHub: RichXDA5hR4y ( https://github.com/RichXDA5hR4y )
+## 👤 Author
+
+**Rayneldis Richard Tandirerung, S.Inf.**
+* **Role:** Freelance Programmer, Junior Full Stack Web Developer
+* **GitHub:** [RichXDA5hR4y](https://github.com/RichXDA5hR4y)
 
 Dibuat untuk tujuan edukasi dan portofolio pengembangan web.
 
