@@ -24,7 +24,7 @@ Teknologi yang digunakan dalam pembangunan frontend ini:
 * **Library:** React.js
 * **Routing:** React Router DOM
 * **HTTP Client:** Axios
-* **Styling:** CSS / Tailwind CSS / Bootstrap *(Sesuaikan)*
+* **Styling:** CSS / Tailwind CSS / Bootstrap
 * **Version Control:** Git & GitHub
 
 ## 📂 Struktur Direktori
