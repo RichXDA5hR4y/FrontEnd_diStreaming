@@ -60,6 +60,8 @@ npm start
 👤 Author
 Rayneldis Richard Tandirerung, S.Inf.
 * Role: Full Stack Web Developer 
-* GitHub: RichXDA5hR4y 
+* GitHub: RichXDA5hR4y ( https://github.com/RichXDA5hR4y )
 
 Dibuat untuk tujuan edukasi dan portofolio pengembangan web.
+
+Pengembangan lanjutan mungkin bisa dilakukan nanti jika diperlukan.
